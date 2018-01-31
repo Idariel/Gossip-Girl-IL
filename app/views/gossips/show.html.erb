@@ -1,13 +1,16 @@
-<h4>Tous les Gossips</h4>
-<!-- <p><strong>Gossip</strong>
-  <%= @gossip.content %></p> -->
+<h2>Nouveau Gossip</h2>
 
-  <p>
-    <strong>Author: </strong>
-    <%= @gossip.anonymous_author %>
-  </p>
-
-  <p>
-    <strong>Content :</strong>
-    <%= @gossip.content %>
-  </p>
+<table>
+  <tr>
+    <th></th>
+    <!-- <th>Nom ou Pseudo</th> -->
+    <th>Gossip</th>
+  </tr>
+  <tr>
+    <td><%= @gossip.id %></td>
+    <!-- <td><%= @gossip.anonymous_author %></td> -->
+    <td><%= @gossip.content %></td>
+  </tr>
+</table>
+<p><%= link_to 'Un autre Gossip ?', new_gossip_path %></p>
+<p><%= link_to 'Accueil', root_path %></p>

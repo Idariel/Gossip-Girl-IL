@@ -1,6 +1,19 @@
-<h2>Ici le site de GOSSIP de THP</h2>
-<h7>by Gossip Girl IL</h7>
+<h2>Voici le site de GOSSIP de THP</h2>
+<em><p>by Gossip Girl IL</p></em>
 <h1>Avez vous un Gossip à partager ?</h1>
 <p><%= link_to 'Nouveau Gossip', new_gossip_path %></p>
-<br />
-<br />
+
+<table>
+    <th><h3>Liste des Gossips</h3></th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @gossips.each do |gossip| %>
+    <p><tr>
+      <td width="300px"><%= gossip.content %></td>
+      <td><%= link_to 'Montrer', gossip_path(gossip) %></td>
+      <td><%= link_to 'Editer', edit_gossip_path(gossip) %></td>
+      <td><%= link_to 'Supprimer', @gossip, method: :delete %></td>
+    </tr></p>
+  <% end %>
+</table>
