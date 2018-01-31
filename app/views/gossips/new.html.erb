@@ -1,3 +1,4 @@
+<!-- Formulaire pour les nouveaux Gossips -->
 <%= form_for @gossip, url: {action: "create"}, html: {class: "gossip"} do |f| %>
   <%= f.text_field :anonymous_author %>
   <%= f.text_area :content, size: "70x15" %>
