@@ -11,31 +11,33 @@ class GossipsController < ApplicationController
     @gossip = Gossip.create(gossip_params)
     @gossip.save
     redirect_to @gossip
-
-    # allow and require the title and text parameters for valid use of create
-    private
-    def gossip_params
-      params.require(:gossip).permit(:anonymous_author, :content)
-    end
-
   end
 
 
   def show
     # return a collection with all users
-    @gossip = Gossip.find(params[:content])
+    @gossip = Gossip.find(params[:id])
   end
 
 
-  def update
+  def edit
     @gossip = Gossip.find_by(anonymous_author: anonymous_author)
     @gossip.content = 'Dave'
     @gossip.save
   end
 
-  
+
   def delete
     @gossip = Gossip.find_by(anonymous_author: anonymous_author)
     @gossip.destroy
   end
+
+
+  # allow and require the title and text parameters for valid use of create
+  private
+  def gossip_params
+    params.require(:gossip).permit(:anonymous_author, :content)
+  end
+
+
 end
