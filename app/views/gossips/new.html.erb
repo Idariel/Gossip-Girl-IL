@@ -2,7 +2,7 @@
 <%= form_for @gossip, url: {action: "create"}, html: {class: "gossip"} do |f| %>
   <p><strong>Nom de l'auteur ou pseudo</strong><br /><%= f.text_field :anonymous_author %></p>
   <p><strong>Gossip</strong><br /><%= f.text_area :content, size: "70x10" %></p>
-  <strong><%= f.submit "Create" %></strong>
+  <p><strong><%= f.submit "Create" %></strong></p>
 <% end %>
 
 <p><%= link_to 'Annuler', root_path %></p>
