@@ -1,10 +1,6 @@
 class GossipsController < ApplicationController
-  def home
-    @gossips = Gossip.all
-  end
-
   def index
-    @gossip = Gossip.all
+    @gossips = Gossip.all
   end
 
   def new
@@ -16,7 +12,7 @@ class GossipsController < ApplicationController
     @gossip = Gossip.create(gossip_params)
     @gossip.save
     redirect_to @gossip
-
+    # Autre façon d'écrire
     # @gossip = gossip.new(gossip_params)
     # if @gossip.save
     #   redirect_to @gossip
@@ -35,10 +31,6 @@ class GossipsController < ApplicationController
   end
 
   def update # pratiquement identique à create
-    # @gossip = Gossip.update(gossip_params)
-    # @gossip.save
-    # redirect_to @edit
-
     @gossip = Gossip.find(params[:id])
     if @gossip.update(gossip_params)
       redirect_to @gossip
@@ -50,11 +42,9 @@ class GossipsController < ApplicationController
   def destroy
     @gossip = Gossip.find(params[:id])
     @gossip.destroy
-    redirect_to index_path
+    redirect_to gossips_path
   end
 
-
-  # allow and require the title and text parameters for valid use of create
   # Utilisé dans create et update
   private
   def gossip_params

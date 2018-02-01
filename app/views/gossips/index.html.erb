@@ -13,7 +13,9 @@
       <td width="300px"><%= gossip.content %></td>
       <td width="50px"><%= link_to 'Montrer', gossip_path(gossip) %></td>
       <td width="50px"><%= link_to 'Editer', edit_gossip_path(gossip) %></td>
-      <td width="50px"><%= link_to 'Supprimer', @gossip, method: :delete %></td>
+      <td width="50px"><%= link_to 'Supprimer', gossip_path(gossip),
+              method: :delete,
+              data: { confirm: 'Vous êtes sûr ?' } %></td>
     </tr></p>
   <% end %>
 </table>
