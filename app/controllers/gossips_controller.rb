@@ -3,6 +3,10 @@ class GossipsController < ApplicationController
     @gossips = Gossip.all
   end
 
+  def index
+    @gossip = Gossip.all
+  end
+
   def new
     @gossip = Gossip.new
   end
@@ -46,7 +50,7 @@ class GossipsController < ApplicationController
   def destroy
     @gossip = Gossip.find(params[:id])
     @gossip.destroy
-    redirect_to root_path
+    redirect_to index_path
   end
 
 
